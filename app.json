@@ -1,6 +1,10 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/list/list",
+    "pages/set/set",
+    "pages/edit/edit",
+    "pages/ceshi/ceshi",
     "pages/logs/logs"
   ],
   "window":{
@@ -10,5 +14,22 @@
     "navigationBarTextStyle":"black"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#7a7a7a",
+    "selectedColor": "#green",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "position": "bottom",
+    "list": [
+       {
+          "pagePath": "pages/index/index",
+          "text": "首页"
+       },
+       {
+          "pagePath": "pages/logs/logs",
+          "text": "日志"
+       }
+    ]
+ }
 }

@@ -3,8 +3,12 @@
 const app = getApp()
 
 Page({
+  tapName: function(event) {
+    console.log(event)
+  },
   data: {
     motto: 'Hello World',
+    name:'zhangsan',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -16,6 +20,27 @@ Page({
     })
   },
   onLoad: function () {
+    console.log(this)
+    let _this=this;
+    //发起网络请求
+    wx.request({
+      url: 'http://shop.2004a.com/api/test',
+      data:{
+        x: 'xxxx',
+        y: 'yyyy'
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res){
+        console.log(this)
+        _this.setData({
+          goods_name:res.data.goods_name,
+          price:res.data.price
+        })
+      }
+    })
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

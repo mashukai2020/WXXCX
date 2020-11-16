@@ -8,6 +8,8 @@
     </block>
   </view>
   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+    <text class="user-motto">{{goods_name}}</text>
+    <text class="user-motto">{{price}}</text>
+    <button id="tapTest" data-hi="Weixin" bindtap="tapName"> 登录 </button>
   </view>
 </view>
