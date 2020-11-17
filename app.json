@@ -3,7 +3,7 @@
     "pages/index/index",
     "pages/list/list",
     "pages/set/set",
-    "pages/edit/edit",
+    "pages/getuserinfo/gituserinfo",
     "pages/ceshi/ceshi",
     "pages/logs/logs"
   ],
