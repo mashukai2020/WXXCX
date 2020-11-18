@@ -26,20 +26,10 @@
         <view class="item">DDD</view>
         <view class="item">EEE</view>
         <view class="item">FFF</view>
-        <view class="item">GGG</view>
-        <view class="item">HHH</view>
-        <view class="item">JJJ</view>
-        <view class="item">KKK</view>
-        <view class="item">LLL</view>
-        <view class="item">MMM</view>
-        <view class="item">NNN</view>
-        <view class="item">OOO</view>
     </view>
   </scroll-view>
 </view>
 <!-- 文字导航结束 -->
-
-
 <!-- 列表开始 -->
 <view class="goods-list">
 

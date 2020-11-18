@@ -26,7 +26,6 @@
   font-size: 28rpx;
   margin-left: 20rpx;
   border-radius: 20rpx;
-
 }
 
 .nav-box .nav .item.current{
