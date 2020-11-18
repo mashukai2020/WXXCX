@@ -7,30 +7,14 @@ Page({
     console.log(event)
   },
   data: {
-    motto: 'Hello World',
-    name:'zhangsan',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    banners: ['/images/1.jpg', '/images/2.jpg', '/images/3.jpg'],
+    indicatorDots: true,
+    vertical: false,
+    autoplay: true,
+    interval: 2000,
+    duration: 500
   },
-  bthLogin: function(e){
-    wx.login({
-      success (res) {
-        console.log(res)
-        if (res.code) {
-          //发起网络请求
-          wx.request({
-            url: 'http://shop.2004a.com/login/xcx',
-            data: {
-              code: res.code,
-            },
-          })
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    })
-  },
+  
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
@@ -42,19 +26,14 @@ Page({
     let _this=this;
     //发起网络请求
     wx.request({
-      url: 'http://shop.2004a.com/api/test',
-      data:{
-        x: 'xxxx',
-        y: 'yyyy'
-      },
+      url: 'http://shop.2004a.com/api/goods',
       header: {
         'content-type': 'application/json'
       },
       success(res){
         console.log(this)
         _this.setData({
-          goods_name:res.data.goods_name,
-          price:res.data.price
+          data:res.data
         })
       }
     })

@@ -1,4 +1,4 @@
-// pages/set/set.js
+// pages/myself/myself.js
 Page({
 
   /**
@@ -7,7 +7,24 @@ Page({
   data: {
 
   },
-
+  bthLogin: function(e){
+    wx.login({
+      success (res) {
+        console.log(res)
+        if (res.code) {
+          //发起网络请求
+          wx.request({
+            url: 'http://shop.2004a.com/login/xcx',
+            data: {
+              code: res.code,
+            },
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
