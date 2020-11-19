@@ -7,6 +7,11 @@ Page({
   data: {
 
   },
+  bindViewTap: function() {
+    wx.navigateTo({
+      url: '../logs/logs'
+    })
+  },
   bthLogin: function(e){
     wx.login({
       success (res) {

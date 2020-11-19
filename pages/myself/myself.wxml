@@ -1,1 +1,1 @@
-<view><button type="primary" bindtap="bthLogin"> 登录 </button></view>
+<view><button type="primary" bindtap="bthLogin"> 登入 </button></view>

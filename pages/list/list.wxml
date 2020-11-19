@@ -1,2 +1,19 @@
-<!--pages/list/list.wxml-->
-<text>pages/list/list.wxml</text>
+
+<view class="goods-list">
+  <view wx:for="{{data}}">
+    <view class="img">
+      <image src="{{item.goods_img}}"></image>
+    </view>
+    <view class="content">
+      <view class="title">商品名称：{{item.goods_name}}</view>
+      <view class="desc">商品介绍：{{item.goods_desc}}</view>
+      <view class="price">商品价格： $ {{item.shop_price}} </view>
+    </view>
+    <view><button type="primary"  bindtap="bthCart"> 加入购物车 </button></view>
+  </view>
+
+</view>
+<!-- 列表结束 -->
+
+
+

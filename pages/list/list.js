@@ -7,11 +7,35 @@ Page({
   data: {
 
   },
-
+  bthCart:function(e)
+  {
+    //获取被点击的 商品id
+    //切换至 详情页
+    wx.redirectTo({
+      url: '/pages/cart/cart'
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let _this = this;
+  //获取商品信息
+    wx.request({
+      url: 'http://shop.2004a.com/api/list',
+      data: {
+        goods_id:options.goods_id
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res){
+        console.log(this)
+        _this.setData({
+          data:res.data
+        })
+      }
+    })
 
   },
 

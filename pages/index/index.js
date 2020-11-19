@@ -12,32 +12,54 @@ Page({
     vertical: false,
     autoplay: true,
     interval: 2000,
-    duration: 500
+    duration: 500,
+    list:[],
+    page: 1,     // 列表 页号
+    pagesize:10,  //列表 大小
   },
-  
+    /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    this.data.page++;
+    this.getGoodsList();
+  },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
-    console.log(this)
+
+  goodsDetail:function(e)
+  {
+    //获取被点击的 商品id
+    let goodsid = e.currentTarget.dataset.goodsid;
+    //切换至 详情页
+    wx.redirectTo({
+      url: '/pages/list/list?goods_id='+goodsid
+    });
+  },
+
+  getGoodsList: function () {
     let _this=this;
     //发起网络请求
     wx.request({
       url: 'http://shop.2004a.com/api/goods',
+      data:{
+        page:_this.data.page,   //分页 页号
+        size:_this.data.pagesize
+      },
       header: {
         'content-type': 'application/json'
       },
       success(res){
-        console.log(this)
+        let new_list = _this.data.list.concat(res.data)
         _this.setData({
-          data:res.data
+          list: new_list
         })
       }
     })
-
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -72,5 +94,10 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+  onLoad: function () {
+    this.getGoodsList();
+  },
 })
+
+
