@@ -45,7 +45,7 @@ Page({
     let _this=this;
     //发起网络请求
     wx.request({
-      url: 'http://shop.2004a.com/api/goods',
+      url: 'http://msk.mashukai.top/api/goods',
       data:{
         page:_this.data.page,   //分页 页号
         size:_this.data.pagesize
@@ -54,7 +54,7 @@ Page({
         'content-type': 'application/json'
       },
       success(res){
-        let new_list = _this.data.list.concat(res.data)
+        let new_list = _this.data.list.concat(res.data.data)
         _this.setData({
           list: new_list
         })

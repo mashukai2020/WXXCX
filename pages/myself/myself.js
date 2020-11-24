@@ -19,10 +19,20 @@ Page({
         if (res.code) {
           //发起网络请求
           wx.request({
-            url: 'http://shop.2004a.com/login/xcx',
+            url: 'http://msk.mashukai.top/login/xcx?code='+res.code,
+            // header: {
+              // 'token': 'resspan.token'
+            // },
             data: {
               code: res.code,
             },
+            success:function(d){
+              //获取登入的token
+              wx.setStorage({
+                key:"token",
+                data:d.data.data.token
+              })
+            }
           })
         } else {
           console.log('登录失败！' + res.errMsg)
@@ -84,5 +94,38 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+    /**
+   * 处理登录
+   */
+  login:function(u)
+  {
+    //获取用户信息
+    let userinfo = u.detail.userInfo;
+    let token = wx.getStorageSync('token')
+    wx.login({
+      success (res) {
+        if (res.code) {
+          //发起网络请求
+          wx.request({
+            url: 'http://msk.mashukai.top/api/getuser?code=' + res.code +'&token='+token,
+            method: 'post',
+            header:{'content-type':'application/json'},
+            data: {
+              u: userinfo
+            },
+            success: function(res){
+              wx.setStorageSync('token',res.data.data.token)
+            }
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
+  },
+  getToken:function()
+  {
+    console.log(wx.getStorageSync('token'))
   }
 })

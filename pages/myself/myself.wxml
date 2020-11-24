@@ -1,1 +1,2 @@
-<view><button type="primary" bindtap="bthLogin"> 登入 </button></view>
+<view><button type="primary" bindtap="bthLogin"> 获取token</button></view>
+<button open-type="getUserInfo" bindgetuserinfo="login"> 登录 </button>

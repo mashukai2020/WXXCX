@@ -12,7 +12,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let _this=this;
+    //发起网络请求
+    wx.request({
+      url: 'http://msk.mashukai.top/api/cart',
+      data:{
+        page:_this.data.page,   //分页 页号
+        size:_this.data.pagesize
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res){
+        _this.setData({
+          data:res.data
+        })
+      }
+    })
   },
 
   /**
