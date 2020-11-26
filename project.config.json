@@ -68,6 +68,7 @@
         {
           "name": "list",
           "pathName": "pages/cart/cart",
+          "query": "",
           "scene": null
         }
       ]

@@ -20,13 +20,11 @@ Page({
     swiperCurrent: 0
     },
      
-  bthCart:function(e)
+  addCart:function(e)
   {
     //获取被点击的 商品id
+    let goodsid = e.currentTarget.dataset.goodsid;
     //切换至 详情页
-    wx.redirectTo({
-      url: '/pages/cart/cart'
-    });
   },
   /**
    * 生命周期函数--监听页面加载
@@ -50,12 +48,63 @@ Page({
         console.log(res)
         _this.setData({
           data:res.data
-
         })
       }
     })
 
   },
+  //加入购物车
+  addCart:function(e)
+  {
+    console.log(e)
+      let goods_id = e.currentTarget.dataset.goodsid; 
+      let token = wx.getStorageSync('token');
+      wx.request({
+        url: 'http://msk.mashukai.top/api/cart_do?id=' + goods_id +'&token='+token,
+        sucess:function(res)
+        {
+          console.log(res)
+        }
+      })
+      wx.switchTab({
+        url: '/pages/cart/cart'
+      });
+    },
+  //加入购物车
+  addTo:function(e)
+  {
+    console.log(e)
+      let goods_id = e.currentTarget.dataset.goodsid; 
+      let token = wx.getStorageSync('token');
+      wx.request({
+        url: 'http://msk.mashukai.top/api/add_do?id=' + goods_id +'&token='+token,
+        sucess:function(res)
+        {
+          console.log(res)
+        }
+      })
+      wx.showToast({
+        title: '收藏成功',
+        icon: 'success',
+        duration: 800
+      })
+    },
+  
+  //拨打客服电话
+  Carttel:function(e) 
+  {
+    wx.makePhoneCall({
+      phoneNumber: '18556933053' //仅为示例，并非真实的电话号码
+    })
+  },
+  indexDtl:function(e)
+  {
+    wx.switchTab({
+      url: '/pages/index/index'
+    });
+  },
+
+
   swiperChange: function (e) {
     //只要把切换后当前的index传给<swiper>组件的current属性即可 
     this.setData({

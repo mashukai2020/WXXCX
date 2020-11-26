@@ -20,24 +20,26 @@
       <view class="title">商品名称：{{data.goods_name}}</view>
       <view class="desc">商品介绍：{{data.goods_desc}}</view>
       <view class="price">商品价格： $ {{data.shop_price}} </view>
+      <view class="iconfont icon-shoucang" data-goodsid="{{data.goods_id}}"  bindtap="addTo">收藏</view>
     </view>
+
   </view>
 
 </view>
 <view class="bottom-nav">
-        <view class="nav-icon">
+        <view class="nav-icon" bindtap="indexDtl">
             <view class="iconfont icon-zhuyemian"></view>
             <view class="size">首页</view>
         </view>
-        <view class="nav-icon">
+        <view class="nav-icon" bindtap="Carttel">
             <view class="iconfont icon-dianhua"></view>
             <view class="size">客服</view>
         </view>
-        <view class="nav-icon">
+        <view class="nav-icon" bindtap="bthCart">
             <view class="iconfont icon-gouwuche"></view>
             <view class="size">购物车</view>
         </view>
-        <view class="nav-addcart">加入购物车</view>
+        <view class="nav-addcart" data-goodsid="{{data.goods_id}}" bindtap="addCart">加入购物车</view>
         <view class="nav-buynow">立即购买</view>
     </view>
 <!-- 列表结束 -->

@@ -16,6 +16,7 @@
 
 .img{
   width: 100%;
+  margin-left: 48px;
 }
 .swiper {
   height: 550rpx;
@@ -97,3 +98,17 @@
   color: #fff;
 
 }
+.goods-info .fav {
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+}
+.goods-info .fav .price{
+  color: #fc0;
+}
+
+.goods-info .fav .favicon {
+  margin-left: 20rpx;
+  font-size: 50rpx;
+}
+

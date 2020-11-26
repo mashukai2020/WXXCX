@@ -28,7 +28,7 @@
           <view class="price"> 商品价格：$ {{item.shop_price}} </view>
           <view class="number">
             <view class="decr">-</view>
-            <input value="0"></input>
+            <input value="{{item.buy_number}}"></input>
             <view class="incr">+</view>
           </view>
         </view>
