@@ -51,7 +51,6 @@ Page({
         })
       }
     })
-
   },
   //加入购物车
   addCart:function(e)
@@ -66,9 +65,11 @@ Page({
           console.log(res)
         }
       })
-      wx.switchTab({
-        url: '/pages/cart/cart'
-      });
+      wx.showToast({
+        title: '加入购物车成功',
+        icon: 'success',
+        duration: 800
+      })
     },
   //加入购物车
   addTo:function(e)
@@ -101,6 +102,12 @@ Page({
   {
     wx.switchTab({
       url: '/pages/index/index'
+    });
+  },
+  bthCart:function(e)
+  {
+    wx.switchTab({
+      url: '/pages/cart/cart'
     });
   },
 

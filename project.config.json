@@ -38,7 +38,6 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.0.4",
-  "appid": "wx310529f2e18792c9",
   "projectname": "shop2004",
   "debugOptions": {
     "hidedInDevtools": []
@@ -69,6 +68,11 @@
           "name": "list",
           "pathName": "pages/cart/cart",
           "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/cart/cart",
+          "pathName": "pages/cart/cart",
           "scene": null
         }
       ]

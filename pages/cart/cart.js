@@ -12,6 +12,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getCartList()
+  },
+
+
+  getCartList: function()
+  {
     let _this=this;
     //发起网络请求
     wx.request({
@@ -30,7 +36,6 @@ Page({
       }
     })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
