@@ -1,9 +1,8 @@
 
-/* pages/cart/cart.wxss */
-/* pages/cart/cart.wxss */
 page {
   background-color:#eee;
 }
+
 .cart-top {
   display: flex;
   background-color:#eee;
@@ -16,6 +15,9 @@ page {
   flex: 1;
 }
 
+.item-list {
+  padding-bottom: 100rpx;
+}
 .item-list .item {
   display:flex;
   align-items: center;
@@ -35,12 +37,11 @@ page {
   padding: 15rpx 0;
 }
 .item-list .item .content .price-info .price {
-  color: rgb(55, 158, 226);
+  color: #fc0;
 }
 .item-list .item .content .price-info .number {
   display: flex;
-  border: 1rpx solid red;
-  margin-top: 20px;
+  border: 1rpx solid rgb(20, 20, 20);
   border-radius: 10rpx;
   text-align: center;
   margin-left: 120rpx;
@@ -48,12 +49,12 @@ page {
 }
 .item-list .item .content .price-info .number .decr {
   width:45rpx;
-  border-right: 1rpx solid red;
+  border-right: 1rpx solid rgb(36, 34, 34);
 }
 .item-list .item .content .price-info .number .incr {
   width:40rpx;
   text-align: center;
-  border-left: 1rpx solid red;
+  border-left: 1rpx solid rgb(29, 27, 27);
 }
 .item-list .item .content .price-info .number input {
   width:80rpx;
@@ -62,7 +63,7 @@ page {
 
 .total-box {
   display:flex;
-  background-color: rgb(150, 225, 235);
+  background-color: #fff;
   width: 100%;
   height:100rpx;
   align-items: center;
@@ -90,6 +91,6 @@ page {
   height:70rpx;
   line-height: 70rpx;
   margin-right:20rpx;
-  background-color: rgb(197, 19, 144);
-  color:rgb(18, 240, 11);
+  background-color: orange;
+  color:#fff;
 }

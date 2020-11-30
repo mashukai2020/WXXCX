@@ -44,7 +44,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    },
+    this.setData({
+      user: wx.getStorageSync('user')
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -94,6 +97,12 @@ Page({
   onShareAppMessage: function () {
 
   },
+  SetOrder:function(e)
+  {
+    wx.switchTab({
+      url: '/pages/cart/cart'
+    });
+  },
     /**
    * 处理登录
    */
@@ -101,7 +110,9 @@ Page({
   {
     //获取用户信息
     let userinfo = u.detail.userInfo;
+    wx.setStorageSync('user', userinfo)
     let token = wx.getStorageSync('token')
+    // console.log(token);
     wx.login({
       success (res) {
         if (res.code) {
@@ -122,7 +133,11 @@ Page({
         }
       }
     })
+    this.setData({
+      user: u.detail.userInfo,
+    })
   },
+
   getToken:function()
   {
     console.log(wx.getStorageSync('token'))

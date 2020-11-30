@@ -1,9 +1,7 @@
-<view><button type="primary" bindtap="bthLogin"> 获取token</button></view>
-<button open-type="getUserInfo" bindgetuserinfo="login"> 登录 </button>
 <!--pages/my/my.wxml-->
 <view class="page-box">
   <!-- 未登录 开始 -->
-  <button wx:if="{{!user.nickname}}" class="btn-login" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+  <button wx:if="{{!user.nickName}}" class="btn-login" open-type="getUserInfo" bindgetuserinfo="login">
     <view class="login-info">
     <image src=""></image>
     <view class="login">
@@ -15,10 +13,10 @@
   <!-- 未登录 结束 -->
 
   <!-- 已登录 开始 -->
-  <view class="login-info" wx:if="{{user.nickname}}">
-    <image src="{{user.headimgurl}}"></image>
+  <view class="login-info" wx:if="{{user.nickName}}">
+    <image src="{{user.avatarUrl}}"></image>
     <view class="login">
-      <view class="top"> {{user.nickname}} </view>
+      <view class="top"> {{user.nickName}} </view>
       <view class="desc"> VIP </view>
     </view>
   </view>
@@ -34,7 +32,7 @@
       会员中心
       <text class="iconfont iconarrow"></text>
     </view>
-    <view class="item" bindtap="switchOrder">
+    <view class="item" bindtap="SetOrder">
       我的订单
       <text class="iconfont iconarrow"></text>
     </view>

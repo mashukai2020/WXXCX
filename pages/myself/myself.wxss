@@ -1,4 +1,4 @@
-/* pages/myself/myself.wxss */
+/* pages/my/my.wxss */
 page {
   height: 100%;
 }
